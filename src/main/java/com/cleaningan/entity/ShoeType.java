@@ -34,5 +34,6 @@ public class ShoeType {
 
     @OneToMany(mappedBy = "shoeType", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonBackReference
     private List<DetailTransaction> detailTransactionList;
 }

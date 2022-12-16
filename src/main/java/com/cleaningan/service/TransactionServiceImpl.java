@@ -93,7 +93,7 @@ public class TransactionServiceImpl implements ITransactionService {
             }).collect(Collectors.toList());
             System.out.println("===detail ini ga dapet:=== " + detailTransaction);
             detailTransactionRepository.saveAll(detailTransaction);
-            return null;
+            return transaction;
         } catch (DataIntegrityViolationException e) {
             throw new DataIntegrityViolationException(Objects.requireNonNull(e.getMessage()));
         } catch (NotFoundException e) {

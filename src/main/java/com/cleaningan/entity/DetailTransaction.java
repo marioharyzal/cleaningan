@@ -13,7 +13,6 @@ import javax.persistence.*;
 @Table(name = "detail_transaction")
 @Getter
 @Setter
-@ToString
 public class DetailTransaction {
 
     @Id
@@ -27,10 +26,19 @@ public class DetailTransaction {
 
     @ManyToOne
     @JoinColumn(name = "transaction_id", nullable = false)
+    @JsonBackReference
     private Transaction transaction;
 
     @ManyToOne
     @JoinColumn(name = "shoe_type_id", nullable = false)
     private ShoeType shoeType;
 
+    @Override
+    public String toString() {
+        return "DetailTransaction{" +
+                "detailTransactionId='" + detailTransactionId + '\'' +
+                ", shoeUnits=" + shoeUnits +
+                ", shoeType=" + shoeType +
+                '}';
+    }
 }

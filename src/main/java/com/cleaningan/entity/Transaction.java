@@ -16,7 +16,7 @@ import java.util.List;
 @Table(name = "transaction")
 @Getter
 @Setter
-@ToString
+
 public class Transaction {
 
     @Id
@@ -44,7 +44,19 @@ public class Transaction {
     @JoinColumn(name = "packet_type_id", nullable = false)
     private PacketType packetTypeId;
 
-    @OneToMany(mappedBy = "transaction", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonIgnore
+    @OneToMany(mappedBy = "transaction", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private List<DetailTransaction> detailTransaction;
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "transactionId='" + transactionId + '\'' +
+                ", entryDate=" + entryDate +
+                ", washStatus='" + washStatus + '\'' +
+                ", outDate=" + outDate +
+                ", customer=" + customer +
+                ", packetTypeId=" + packetTypeId +
+                ", detailTransaction=" + detailTransaction +
+                '}';
+    }
 }
