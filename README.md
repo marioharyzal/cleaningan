@@ -2,6 +2,8 @@
 
 Cleaningan adalah sistem Laundry Online yang menerima Laundry Sepatu.
 
+Link ERD Program : https://drive.google.com/file/d/1hRftT3IPkKZM9sI9z3c73k4doyUgTYAI/view?usp=sharing
+
 Feature Customer : 
 - Register Customer
 - Make Transactions
